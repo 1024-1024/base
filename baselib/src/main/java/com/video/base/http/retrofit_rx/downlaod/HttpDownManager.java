@@ -24,6 +24,7 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 import static com.video.base.http.retrofit_rx.utils.AppUtil.getBasUrl;
+import static com.video.base.http.retrofit_rx.utils.AppUtil.writeCache;
 
 /**
  * http下载处理类
