@@ -102,6 +102,7 @@ public class ProgressDownSubscriber<T> extends Subscriber<T> implements Download
         }
         downInfo.setReadLength(read);
         if (mSubscriberOnNextListener.get() != null) {
+            
             /*接受进度消息，造成UI阻塞，如果不需要显示进度可去掉实现逻辑，减少压力*/
             rx.Observable.just(read).observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Action1<Long>() {
