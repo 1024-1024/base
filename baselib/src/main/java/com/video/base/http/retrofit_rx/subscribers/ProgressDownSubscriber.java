@@ -11,6 +11,7 @@ import com.video.base.http.retrofit_rx.utils.DbDwonUtil;
 
 import java.lang.ref.SoftReference;
 
+import io.reactivex.schedulers.Schedulers;
 import rx.Subscriber;
 import rx.functions.Action1;
 
@@ -104,16 +105,16 @@ public class ProgressDownSubscriber<T> extends Subscriber<T> implements Download
         if (mSubscriberOnNextListener.get() != null) {
 
             /*接受进度消息，造成UI阻塞，如果不需要显示进度可去掉实现逻辑，减少压力*/
-            rx.Observable.just(read).observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Action1<Long>() {
-                        @Override
-                        public void call(Long aLong) {
-                      /*如果暂停或者停止状态延迟，不需要继续发送回调，影响显示*/
-                            if(downInfo.getState()==DownState.PAUSE||downInfo.getState()==DownState.STOP)return;
-                            downInfo.setState(DownState.DOWN);
-                            mSubscriberOnNextListener.get().updateProgress(aLong,downInfo.getCountLength());
-                        }
-                    });
+//            rx.Observable.just(read).observeOn(Schedulers.io())
+//                    .subscribe(new Action1<Long>() {
+//                        @Override
+//                        public void call(Long aLong) {
+//                      /*如果暂停或者停止状态延迟，不需要继续发送回调，影响显示*/
+//                            if(downInfo.getState()==DownState.PAUSE||downInfo.getState()==DownState.STOP)return;
+//                            downInfo.setState(DownState.DOWN);
+//                            mSubscriberOnNextListener.get().updateProgress(aLong,downInfo.getCountLength());
+//                        }
+//                    });
         }
     }
 

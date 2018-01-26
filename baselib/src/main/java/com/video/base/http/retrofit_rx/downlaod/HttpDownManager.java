@@ -118,7 +118,7 @@ public class HttpDownManager {
                     }
                 })
                 /*回调线程*/
-                .observeOn(Schedu)
+//                .observeOn(Schedu)
                 /*数据回调*/
                 .subscribe(subscriber);
 

@@ -1,7 +1,8 @@
 package com.video.base.http.retrofit_rx.http.cookie;
 
-import com.wzgiceman.rxretrofitlibrary.retrofit_rx.RxRetrofitApp;
-import com.wzgiceman.rxretrofitlibrary.retrofit_rx.utils.AppUtil;
+
+import com.video.base.http.retrofit_rx.RxRetrofitApp;
+import com.video.base.http.retrofit_rx.utils.AppUtil;
 
 import java.io.IOException;
 

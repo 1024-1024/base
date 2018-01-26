@@ -80,12 +80,12 @@ public class ProgressRequestBody extends RequestBody {
                 if (totalBytesCount == 0) {
                     totalBytesCount = contentLength();
                 }
-                Observable.just(writtenBytesCount).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Long>() {
-                    @Override
-                    public void call(Long aLong) {
-                        progressListener.onProgress(writtenBytesCount, totalBytesCount);
-                    }
-                });
+//                Observable.just(writtenBytesCount).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Long>() {
+//                    @Override
+//                    public void call(Long aLong) {
+//                        progressListener.onProgress(writtenBytesCount, totalBytesCount);
+//                    }
+//                });
             }
         };
     }

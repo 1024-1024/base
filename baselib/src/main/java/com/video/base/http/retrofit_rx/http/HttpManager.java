@@ -1,6 +1,7 @@
 package com.video.base.http.retrofit_rx.http;
 
 import com.video.base.http.retrofit_rx.Api.BaseApi;
+import com.video.base.http.retrofit_rx.exception.FactoryException;
 import com.video.base.http.retrofit_rx.exception.RetryWhenNetworkException;
 import com.video.base.http.retrofit_rx.listener.HttpOnNextListener;
 import com.video.base.http.retrofit_rx.subscribers.ProgressSubscriber;
@@ -23,13 +24,13 @@ import rx.schedulers.Schedulers;
 public class HttpManager {
     /*软引用對象*/
     private SoftReference<HttpOnNextListener> onNextListener;
-    private SoftReference<RxAppCompatActivity> appCompatActivity;
-
-
-    public HttpManager(HttpOnNextListener onNextListener, RxAppCompatActivity appCompatActivity) {
-        this.onNextListener = new SoftReference(onNextListener);
-        this.appCompatActivity = new SoftReference(appCompatActivity);
-    }
+//    private SoftReference<RxAppCompatActivity> appCompatActivity;
+//
+//
+//    public HttpManager(HttpOnNextListener onNextListener, RxAppCompatActivity appCompatActivity) {
+//        this.onNextListener = new SoftReference(onNextListener);
+//        this.appCompatActivity = new SoftReference(appCompatActivity);
+//    }
 
     /**
      * 处理http请求
@@ -58,12 +59,12 @@ public class HttpManager {
                 .onErrorResumeNext(funcException)
                 /*生命周期管理*/
 //                .compose(appCompatActivity.get().bindToLifecycle())
-                .compose(appCompatActivity.get().bindUntilEvent(ActivityEvent.DESTROY))
-                /*http请求线程*/
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                /*回调线程*/
-                .observeOn(AndroidSchedulers.mainThread())
+//                .compose(appCompatActivity.get().bindUntilEvent(ActivityEvent.DESTROY))
+//                /*http请求线程*/
+//                .subscribeOn(Schedulers.io())
+//                .unsubscribeOn(Schedulers.io())
+//                /*回调线程*/
+//                .observeOn(AndroidSchedulers.mainThread())
                 /*结果判断*/
                 .map(basePar);
 
