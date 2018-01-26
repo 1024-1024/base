@@ -4,7 +4,15 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.video.base.http.retrofit_rx.RxRetrofitApp;
+import com.video.base.http.retrofit_rx.downlaod.DaoMaster;
+import com.video.base.http.retrofit_rx.downlaod.DaoSession;
 import com.video.base.http.retrofit_rx.downlaod.HttpDownManager;
+import com.video.base.http.retrofit_rx.http.cookie.CookieResulte;
+import com.video.base.http.retrofit_rx.http.cookie.CookieResulteDao;
+
+import org.greenrobot.greendao.query.QueryBuilder;
+
+import java.util.List;
 
 
 /**
